@@ -7,12 +7,15 @@ export const login = async (email, password) => {
 	return data;
 }
 
-export const checkToken = async () => {
-
+export const reservation = async (email, date, people) => {
+	const data = await axios.post(baseUrl + '/reservation/add', { email, date, people });
+	console.log(data);
+	return data;
 }
 
-const config = {
-	headers: {
-		'Authorization': `Bearer ${localStorage.getItem('token')}`
-	}
-}
+//! Для check jwt
+// const config = {
+// 	headers: {
+// 		'Authorization': `Bearer ${localStorage.getItem('token')}`
+// 	}
+// }

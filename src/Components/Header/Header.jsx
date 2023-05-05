@@ -2,12 +2,11 @@ import "./Header.css"
 import Navigation from "Components/Navigation/Navigation"
 
 const Header = ({ title, subtitle, imagePath }) => {
-
-
   return <header className="header" style={{
     backgroundImage: `url("${imagePath}")`,
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     height: 350
   }}>
     <div className="header-container">
