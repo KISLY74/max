@@ -1,5 +1,5 @@
 import Navigation from "Components/Navigation/Navigation";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { login } from "Api/ApiRequest";
@@ -20,7 +20,6 @@ const LogInPage = observer(() => {
 				user.setIsAuth(true);
 				localStorage.setItem("token", x.data.token);
 				localStorage.setItem("email", x.data.email);
-				localStorage.setItem('userStore', JSON.stringify(user));
 				history("/");
 			})
 			.catch(x => console.log(x));
@@ -30,7 +29,7 @@ const LogInPage = observer(() => {
 	return <>
 		<Navigation />
 		<div className="back-grey">
-			<div className="block-center ">
+			<div className="block-center-log">
 				<Form>
 					<Form.Group className="mb-3">
 						<h3 className="text-center">Вход</h3>
@@ -41,7 +40,8 @@ const LogInPage = observer(() => {
 						type="email" />
 					<ValidInput
 						title="Введите пароль"
-						placeholder="Введите пароль" type="password" />
+						placeholder="Введите пароль"
+						type="password" />
 					<Form.Group className="d-grid">
 						<Button variant="primary" type="submit" onClick={(e) => auth(e)}>Войти</Button>
 					</Form.Group>

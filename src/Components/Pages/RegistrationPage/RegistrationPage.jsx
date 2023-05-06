@@ -1,8 +1,22 @@
 import Navigation from "Components/Navigation/Navigation";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "./RegistrationPage.css"
+import ValidInput from "Components/ValidInput/ValidInput";
+import FirstLastNameControl from "Components/FirstLastNameControl/FirstLastNameControl"
+import { useContext } from "react";
+import { Context } from "index";
+import { observer } from "mobx-react-lite";
+import { regin } from "Api/ApiRequest";
 
 function RegistrationPage() {
+	const { user } = useContext(Context)
+
+	async function submitRegin(e) {
+		e.preventDefault()
+		console.log("fields: ", user.reginFields)
+		await regin(user.reginFields).then((data) => console.log(data)).catch((e) => console.log(e))
+	}
+
 	return <>
 		<Navigation />
 		<div className="back-grey">
@@ -11,29 +25,26 @@ function RegistrationPage() {
 					<Form.Group className="mb-3">
 						<h3 className="text-center">Регистрация</h3>
 					</Form.Group>
-					<InputGroup className="mb-3">
-						<InputGroup.Text>Имя и фамилия</InputGroup.Text>
-						<Form.Control aria-label="First name" />
-						<Form.Control aria-label="Last name" />
-					</InputGroup>
-					<Form.Group className="mb-3" controlId="formBasicEmail">
-						<Form.Label>Email адрес</Form.Label>
-						<Form.Control type="email" placeholder="Введите email" required />
-					</Form.Group>
-					<Form.Group className="mb-3" controlId="formBasicPassword">
-						<Form.Label>Пароль</Form.Label>
-						<Form.Control type="password" placeholder="Введите пароль" />
-					</Form.Group>
-					<Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-						<Form.Label>Повторите пароль</Form.Label>
-						<Form.Control type="password" placeholder="Повторите пароль" />
-					</Form.Group>
-					<Form.Group className="mb-3" controlId="formBasicPhone">
-						<Form.Label>Номер телефона</Form.Label>
-						<Form.Control type="tel" placeholder="Номер телефона" />
-					</Form.Group>
+					<FirstLastNameControl />
+					<ValidInput
+						title="Email адрес"
+						placeholder="Введите email"
+						type="email" />
+					<ValidInput
+						title="Введите пароль"
+						placeholder="Введите пароль"
+						type="password" />
+					<ValidInput
+						title="Повторите пароль"
+						placeholder="Введите пароль еще раз"
+						type="password"
+						isRepeat={true} />
+					<ValidInput
+						title="Номер телефона"
+						placeholder="+375(xx)xxx-xx-xx"
+						type="tel" />
 					<Form.Group className="d-grid">
-						<Button variant="primary" type="submit">Зарегистрироваться</Button>
+						<Button variant="primary" type="submit" onClick={(e) => submitRegin(e)}>Зарегистрироваться</Button>
 					</Form.Group>
 				</Form>
 			</div>
@@ -41,4 +52,4 @@ function RegistrationPage() {
 	</>
 }
 
-export default RegistrationPage;
+export default observer(RegistrationPage);

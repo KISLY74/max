@@ -5,11 +5,16 @@ class UserStore {
 		this._isAuth = false;
 		this._email = ''
 		this._password = ''
+		this._reginFields = {}
 		makeAutoObservable(this);
 	}
 
 	setIsAuth(value) {
 		this._isAuth = value;
+	}
+
+	setReginFields(key, val) {
+		this._reginFields[key] = val;
 	}
 
 	setUserAuth(key, val) {
@@ -34,6 +39,10 @@ class UserStore {
 
 	get isAuth() {
 		return this._isAuth;
+	}
+
+	get reginFields() {
+		return this._reginFields;
 	}
 }
 

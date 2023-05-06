@@ -12,7 +12,7 @@ import ReservationPage from "Components/Pages/ReservationPage/ReservationPage";
 const AppRouter = observer(() => {
 	const { user } = useContext(Context);
 	useEffect(() => {
-		user.setIsAuth(localStorage.getItem("userStore") && JSON.parse(localStorage.getItem("userStore"))._isAuth)
+		user.setIsAuth(localStorage.getItem("token"))
 	}, [user]);
 
 	return <>
