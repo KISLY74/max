@@ -1,11 +1,8 @@
-import { observer } from "mobx-react-lite"
 import "./CategoryItem.scss"
-import { useContext, useState } from "react"
-import { Context } from "index"
+import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
 
 const CategoryItem = ({ item, pathname }) => {
-  const { user } = useContext(Context)
   const [count, setCount] = useState(0)
 
   function addToOrder() {
@@ -31,4 +28,4 @@ const CategoryItem = ({ item, pathname }) => {
   </div>
 }
 
-export default observer(CategoryItem)
+export default CategoryItem
