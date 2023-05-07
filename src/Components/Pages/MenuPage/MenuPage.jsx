@@ -1,17 +1,13 @@
-import Navigation from "Components/Navigation/Navigation"
-import CategoryList from "Components/CategoryList/CategoryList";
-import { Container } from 'react-bootstrap';
+import Header from "Components/Header/Header";
+import MenuList from "Components/MenuList/MenuList";
 
 function MenuPage() {
 	return <>
-		<Navigation />
-		{/* цикл */}
-		<Container className="d-flex flex-column align-items-center">
-			<CategoryList title="Супы" />
-			<CategoryList title="Горячее" />
-			<CategoryList title="Десерты" />
-		</Container>
-		{/* <MenuSection title="drink" /> */}
+		<Header
+			title={"Меню"}
+			imagePath={"./img/header-order.jpg"}
+			isNotLines={true} />
+		<MenuList />
 	</>
 }
 
