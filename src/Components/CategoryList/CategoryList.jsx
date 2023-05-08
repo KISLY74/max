@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom"
 
 const items = [
   {
-    name: 'Суп гороховый',
+    name: 'Суп гороховый ujhjwirhgfiowr',
     price: 14.29,
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni possimus eligendi impedit ullam at, placeat architecto ab animi'
   },

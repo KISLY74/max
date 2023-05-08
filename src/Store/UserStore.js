@@ -6,6 +6,7 @@ class UserStore {
 		this._email = ''
 		this._password = ''
 		this._reginFields = {}
+		this._orders = []
 		makeAutoObservable(this);
 	}
 
@@ -27,6 +28,23 @@ class UserStore {
 
 	setPassword(val) {
 		this._password = val;
+	}
+
+	setOrders(order) {
+		let orderCurr = this._orders.find(el => el.name === order.name)
+		if (orderCurr)
+			orderCurr.count = order.count
+		else
+			this._orders.push({
+				name: order.name,
+				price: order.price,
+				count: order.count,
+			})
+		this._orders = this._orders.filter(order => order.count !== 0)
+	}
+
+	get orders() {
+		return this._orders
 	}
 
 	get email() {

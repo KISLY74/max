@@ -20,6 +20,12 @@ export const reservation = async (email, date, people) => {
 	return data;
 }
 
+export const order = async (email, orders) => {
+	const data = await axios.post(baseUrl + '/order/add', { email, orders });
+	console.log(data);
+	return data;
+}
+
 
 //! Для check jwt
 // const config = {
