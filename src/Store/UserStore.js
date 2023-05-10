@@ -40,7 +40,7 @@ class UserStore {
 				price: order.price,
 				count: order.count,
 			})
-		this._orders = this._orders.filter(order => order.count !== 0)
+		this._orders = this._orders.filter(order => order.count > 0)
 	}
 
 	get orders() {

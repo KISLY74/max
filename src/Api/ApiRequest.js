@@ -20,12 +20,17 @@ export const reservation = async (email, date, people) => {
 	return data;
 }
 
-export const order = async (email, orders) => {
-	const data = await axios.post(baseUrl + '/order/add', { email, orders });
+export const order = async (numberTable, email, orders) => {
+	const data = await axios.post(baseUrl + '/order/add', { numberTable, email, orders });
 	console.log(data);
 	return data;
 }
 
+export const getMenu = async () => {
+	const data = await axios.get(baseUrl + '/menu/getMenu');
+	console.log(data);
+	return data;
+}
 
 //! Для check jwt
 // const config = {

@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 50px;
+  padding: 40px;
   gap: 50px;
   .body-title{
     display: flex;
@@ -40,6 +40,26 @@
       width: 250px;
       height: 250px;
       object-fit: cover;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .section{
+    padding: 15px;
+    &__img{
+      width: 300px;
+    }
+    .body-title{
+      max-width: 100%;
+    }
+    .images{
+      width: 300px;
+      &__img{
+        border-radius: 6px;
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+      }
     }
   }
 }

@@ -16,6 +16,7 @@
 }
 @media (max-width: 455px){
 .block-center-log{
-	min-width: 350px;
+	min-width: 200px;
+	width: 280px;
 }
 }

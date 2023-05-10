@@ -23,6 +23,13 @@
 .section-reservation__title{
     text-transform: uppercase;
 }
-@media (max-width: 53){
-  
+@media (max-width: 550px){
+    .form{
+      flex-direction: column;
+    }
+    .reservation-submit{
+      text-align: center;
+      padding: 0 10px;
+      width: fit-content;
+    }
 }

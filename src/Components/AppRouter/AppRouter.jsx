@@ -9,6 +9,7 @@ import { Context } from "index";
 import { observer } from "mobx-react-lite";
 import ReservationPage from "Components/Pages/ReservationPage/ReservationPage";
 import OrderPage from "Components/Pages/Orderpage/OrderPage";
+import ConfirmOrderPage from "Components/Pages/ConfirmOrderPage/ConfirmOrderPage";
 
 const AppRouter = observer(() => {
 	const { user } = useContext(Context);
@@ -24,6 +25,7 @@ const AppRouter = observer(() => {
 				<Route path="login" element={<LogInPage />} />
 				<Route path="reservation" element={<ReservationPage />} />
 				<Route path="order" element={<OrderPage />} />
+				<Route path="confirm-order" element={<ConfirmOrderPage />} />
 				<Route path="registration" element={<RegistrationPage />} />
 			</Routes>
 		</BrowserRouter>

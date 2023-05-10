@@ -17,7 +17,7 @@ const Header = ({ title, subtitle, imagePath, isNotLines }) => {
         <p className="title-block__desc">{subtitle}</p>
       </div>
     </div>
-  </header >
+  </header>
 }
 
 export default Header
